@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XenCenterPlugin xmlns="http://www.citrix.com/XenCenter/Plugins/schema" version="2" plugin_version="1.0.0.0">
+	<TabPage name="webui-tab" url="http://{$ip_address}" search="be926abf-4b9a-4e5b-b69f-b49e7f453539" />
+	<MenuItem name="ui-menu-item" menu="vm" serialized="none" search="be926abf-4b9a-4e5b-b69f-b49e7f453539">
+	   <Shell filename="http://{$ip_address}" />
+	</MenuItem>
+	<MenuItem name="web-menu-item" menu="help" serialized="none">
+	   <Shell filename="http://citrix.com/netscalervpx" />
+	</MenuItem>
+	<Search uuid="be926abf-4b9a-4e5b-b69f-b49e7f453539" name="NetScaler VPX" major_version="2" minor_version="0" show_expanded="yes">
+        <Query>
+            <QueryScope>
+                <VM />
+            </QueryScope>
+            <GroupQuery type="And">
+                <EnumPropertyQuery property="power_state" equals="yes" query="Running" />
+                <StringListContainsQuery property="tags" query="NetScaler VPX" contains="yes" />
+            </GroupQuery>
+        </Query>
+    </Search>
+</XenCenterPlugin>
